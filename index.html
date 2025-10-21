@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - M. Ade Wahyu Saputra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            display: flex;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 35%;
+            background: #f8f9fa;
+            padding: 30px;
+        }
+
+        .content {
+            width: 65%;
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #3498db;
+        }
+
+        .about-text {
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+            background: #2980b9;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .timeline-subtitle {
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language {
+            text-align: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: #3498db;
+            border-radius: 3px;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 30px;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar, .content {
+                width: 100%;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="pro">
+                <img src="profile - Copy.jpg" alt="">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="header-info">
+                <h1 class="name">M. Ade Wahyu Saputra</h1>
+                <p class="title">Mahasiswa & Calon Web Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>m.adewahyusaputra7@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>085251775924</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Batulicin, 07 Januari 2005</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-user"></i> Tentang Saya</h2>
+                    <p class="about-text">
+                        Saya merupakan individu yang memiliki <span class="highlight">semangat belajar tinggi</span>, mampu bekerja secara mandiri maupun dalam tim, serta memiliki <span class="highlight">tanggung jawab dan disiplin</span> yang baik dalam menyelesaikan pekerjaan. Saya memiliki ketertarikan yang kuat di bidang <span class="highlight">teknologi dan sistem informasi</span> serta mampu beradaptasi dengan cepat terhadap lingkungan kerja dan perubahan yang terjadi.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-code"></i> Keahlian Teknis</h2>
+                    <div class="skills-list">
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">Pengembangan Web</span>
+                        <span class="skill">Manajemen Waktu</span>
+                        <span class="skill">Kerja Tim</span>
+                        <span class="skill">Adaptabilitas</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> Bahasa</h2>
+                    <div class="languages-list">
+                        <div class="language">
+                            <div class="language-name">Indonesia</div>
+                            <div class="language-level">
+                                <div class="language-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Pengalaman Organisasi</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 - 2022</div>
+                            <div class="timeline-title">Anggota MPK</div>
+                            <div class="timeline-subtitle">SMA IT Plus Ar-Rasyid</div>
+                            <p>Sebagai anggota Majelis Perwakilan Kelas yang bertugas mengawasi dan mengevaluasi kinerja pengurus OSIS serta menampung aspirasi siswa.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018 - 2019</div>
+                            <div class="timeline-title">Wakil Bendahara OSIS</div>
+                            <div class="timeline-subtitle">SMP IT Ar-Rasyid</div>
+                            <p>Membantu mengelola keuangan organisasi, membuat laporan keuangan, dan bertanggung jawab atas transaksi keuangan OSIS.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Pendidikan</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - Sekarang</div>
+                            <div class="timeline-title">S1 Universitas Gunadarma</div>
+                            <div class="timeline-subtitle">Program Studi Sistem Informasi / Teknik Informatika</div>
+                            <p>Sedang menempuh pendidikan tinggi dengan fokus pada pengembangan sistem informasi dan teknologi.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 2023</div>
+                            <div class="timeline-title">SMA IT Plus Ar-Rasyid</div>
+                            <div class="timeline-subtitle">Jurusan IPA / IPS</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017 - 2020</div>
+                            <div class="timeline-title">SMP IT Ar-Rasyid</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2011 - 2017</div>
+                            <div class="timeline-title">SDN 1 Tungkaran Pangeran</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2010 - 2011</div>
+                            <div class="timeline-title">TK Kodeco</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-rocket"></i> Tujuan Karir</h2>
+                    <div class="project-item">
+                        <p class="project-desc">Saat ini saya sedang menempuh pendidikan di Universitas Gunadarma dan berencana untuk mengembangkan keterampilan dalam pengembangan web. Saya bertekad untuk menjadi seorang Web Developer yang kompeten dan berkontribusi dalam industri teknologi.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2023 M. Ade Wahyu Saputra. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
